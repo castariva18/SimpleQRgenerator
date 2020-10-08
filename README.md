@@ -1,0 +1,2 @@
+# SimpleQRgenerator
+Simple QR generator 
