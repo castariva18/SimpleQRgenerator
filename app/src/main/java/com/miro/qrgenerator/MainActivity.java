@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
     private void CheckInput() {
         String text = etText.getText().toString();
         if (TextUtils.isEmpty(text)){
-            etText.setError("Email cannot be empty");
+            etText.setError("Field cannot be empty");
             etText.requestFocus();
         }else {
             QRCodeWriter qrCodeWriter = new QRCodeWriter();
