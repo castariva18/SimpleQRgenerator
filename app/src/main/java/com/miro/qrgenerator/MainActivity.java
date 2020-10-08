@@ -2,6 +2,7 @@ package com.miro.qrgenerator;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -20,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
 
     private EditText etText;
     private Button btnGenerate;
-    private ImageView imgQR;
+    private ImageView imgQR, imgButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,13 +31,25 @@ public class MainActivity extends AppCompatActivity {
         etText = findViewById(R.id.et_text);
         btnGenerate = findViewById(R.id.btn_generate);
         imgQR = findViewById(R.id.img_qr);
+        imgButton = findViewById(R.id.img_button);
 
+        imgButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                OpenScannerCam();
+            }
+        });
         btnGenerate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 CheckInput();
             }
         });
+    }
+
+    private void OpenScannerCam() {
+        Intent i = new Intent(MainActivity.this,QRScannerCamActivity.class);
+        startActivity(i);
     }
 
     private void CheckInput() {
